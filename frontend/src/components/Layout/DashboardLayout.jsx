@@ -6,14 +6,14 @@ import SideMenu from "./SideMenu";
 const DashboardLayout = ({ children, activeMenu }) => {
   const { user } = useContext(UserContext);
   return (
-    <div className="h-screen pt-[64px]">
+    <div className="h-screen pt-[64px] overflow-x-hidden">
       <Navbar activeMenu={activeMenu} />
       {user && (
         <div className="flex">
           <div className="max-[1080px]:hidden">
             <SideMenu activeMenu={activeMenu} />
           </div>
-          <div className="w-full lg:ml-64 px-6  pb-12 overflow-y-auto">
+          <div className="w-full lg:ml-64 px-6 pt-6 pb-12 overflow-y-auto overflow-x-hidden max-w-full">
             {children}
           </div>
         </div>
@@ -21,5 +21,4 @@ const DashboardLayout = ({ children, activeMenu }) => {
     </div>
   );
 };
-
 export default DashboardLayout;
